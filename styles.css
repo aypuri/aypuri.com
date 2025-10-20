@@ -68,7 +68,7 @@
     .site-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
     .brand { display: flex; align-items: center; gap: 10px; font: 800 var(--fs-2)/1 var(--font-ui);}
     .brand .logo { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: var(--text); color: var(--bg); font: 800 14px/1 var(--font-ui); }
-    nav a { color: inherit; opacity: .9; margin-left: 14px; font: 600 var(--fs-0)/1 var(--font-ui); }
+    nav a { color: inherit; opacity: .9; font: 600 var(--fs-0)/1 var(--font-ui); }
     nav a:hover { opacity: 1; }
 
     .container { padding: 28px 0 80px; }
@@ -81,7 +81,7 @@
     .profile h1 { font: 900 var(--fs-2)/1.2 var(--font-ui); margin: 12px 0 6px; }
     .profile .title { color: var(--muted); font: 600 var(--fs-0)/1.5 var(--font-ui); margin-bottom: 10px; }
     .contacts { display: grid; gap: 8px; margin-top: 10px;}
-    .contact { display:flex; align-items:center; gap:8px; border:1px solid var(--border); border-radius: 10px; padding:8px 10px; font:700 var(--fs-0)/1 var(--font-ui); color:inherit; background: color-mix(in oklab, var(--card) 98%, white 2%); }
+    .contact { display:flex; align-items:center; gap:8px; border:1px solid var(--border); border-radius: 10px; padding:10px 10px; font:700 var(--fs-0)/1 var(--font-ui); color:inherit; background: color-mix(in oklab, var(--card) 98%, white 2%); }
     .contact:hover { text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow); }
     .profile .blurb { margin-top: 12px; color: var(--muted); font: 500 var(--fs-0)/1.6 var(--font-ui); }
 
