@@ -37,3 +37,12 @@ const $ = (sel, el=document) => el.querySelector(sel);
         });
       });
     });
+
+function applyMobileStyles() {
+    if (/iPhone|iPod|Android/i.test(navigator.userAgent)) {
+        document.body.style.zoom = "90%";
+    }
+}
+
+// Call the function when the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", applyMobileStyles);
