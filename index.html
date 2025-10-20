@@ -1,135 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/uikit.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/uikit.js"></script>
-    <script src="js/uikit-icons.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ayushmaan Puri</title>
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>"/>
+  <!--
+    Minimal Resume Website (Ordered‑List inspired)
+    - Plain grey background (close to ChatGPT): #f7f7f8
+    - Left sticky sidebar for headshot + contacts
+    - Right column with resume sections
+    - No router / blog logic (avoids #app null errors)
+    - Small JS only for theme toggle, year, smooth anchors, and sanity checks
 
-    <title>Ayushmaan Puri</title>
+    NOTE about the previous error:
+    The earlier build referenced an element with id="app" from JavaScript (e.g., $('#app').innerHTML = ...),
+    but the resume layout no longer included that id. This rewrite removes the router/views that depended on #app,
+    so there is no longer any attempt to set innerHTML on a missing node.
+  -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<!-- Navigation Bar -->
-    <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    
-    <div class="uk-navbar-left">
-        <a href="" class="uk-navbar-item uk-logo uk-light">Ayushmaan Puri</a>
+  <header class="site">
+    <div class="wrap site-inner">
+      <a class="brand" href="#about">
+        <span>Ayushmaan Puri</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#about" data-link>About</a>
+        <a href="#experience" data-link>Experience</a>
+        <a href="#education" data-link>Education</a>
+        <a href="#projects" data-link>Projects</a>
+        <a href="#publications" data-link>Publications</a>
+        <a href="#skills" data-link>Skills</a>
+      </nav>
+      <div class="toolbar">
+        <button id="themeToggle" class="button" aria-pressed="false" title="Toggle theme">☾</button>
+      </div>
     </div>
-    <div class="uk-navbar-right">
+  </header>
 
-        <ul class="uk-navbar-nav uk-light">
-            <li><a class="uk-button-text uk-text-capitalize" href="#about" uk-scroll>About</a></li>
-            <li><a class="uk-button-text uk-text-capitalize" href="#projects" uk-scroll>Projects</a></li>
-            <li><a class="uk-button-text uk-text-capitalize" href="mailto:ayushmaan.puri18@gmail.com" uk-scroll>Contact</a></li>
+  <main class="container wrap">
+    <div class="shell">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar" aria-label="Profile">
+        <section class="profile" aria-labelledby="profile-heading">
+          <img class="avatar" src="img/headshot.jpg" alt="Your headshot" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 120 120\'><rect width=\'100%\' height=\'100%\' fill=\'%23e5e7eb\'/><text x=\'50%\' y=\'52%\' text-anchor=\'middle\' font-family=\'Arial,Helvetica,sans-serif\' font-size=\'12\' fill=\'%236b7280\'>Headshot</text></svg>'" />
+          <h1 id="profile-heading">Ayushmaan Puri</h1>
+          <div class="title">Computer Engineering · UCSD</div>
+          <nav class="contacts" aria-label="Contact links">
+            <a class="contact">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+              <span>aypuri [at] ucsd.edu</span>
+            </a>
+            <a class="contact" href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9v9" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="6" r="2" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 18v-5.5a3.5 3.5 0 0 1 7 0V18" stroke="currentColor" stroke-width="2"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a class="contact" href="https://github.com/aypuri" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3 19.5c.5.1.7-.2.7-.5v-2c-3 .6-3.6-1.4-3.6-1.4-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 2.1-.8 2.1-.8-.8-.6-1.3-1.6-1.3-2.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.7 1a9.5 9.5 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 1-.5 2-1.3 2.6 0 0 1.1.9 2.1.8 0 0 .6-1.1 1.7-1.2 0 0 1.1 0 .1.7 0 0-.7.4-1.2 1.7 0 0-.6 2-3.6 1.4v2c0 .3.2.7.8.5A10 10 0 0 0 12 2z" stroke="currentColor" stroke-width="1.2"/></svg>
+              <span>GitHub</span>
+            </a>
+            <a class="contact" href="https://docs.google.com/document/d/19y4q07t-jG6VEzetlcm0LwE59ik_COHHdgkFJjzfBMU/edit?usp=sharing" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h9l3 3v13H6z" stroke="currentColor" stroke-width="1.8"/><path d="M15 4v4h4" stroke="currentColor" stroke-width="1.8"/></svg>
+              <span>CV</span>
+            </a>
+          </nav>
+          <p class="blurb">Sustainable computing and education for all. </p>
+        </section>
+      </aside>
 
-        </ul>
+      <!-- RIGHT COLUMN (RESUME SECTIONS) -->
+      <div class="content" aria-live="polite">
+        <section id="about" class="section">
+          <div class="block">
+            <h2>About</h2>
+            <p class="sub">Dedicated to research that bridges performance with environmental responsibility. <br> Aspiring professor committed to mentoring the next generation of engineers and innovators. </p>
+            <div class="pillset">
+              <span class="pill">Parallel Computation</span>
+              <span class="pill">Sustainable Computing</span>
+              <span class="pill">Computer Architecture</span>
+              <span class="pill">Embedded Systems</span>
+            </div>
+          </div>
+        </section>
 
+        <section id="experience" class="section">
+          <div class="block">
+            <h2>Experience</h2>
+            <div class="item">
+              <div>
+                <div class="role">Undergraduate Researcher · PatLab</div>
+                <div class="org">UC San Diego</div>
+              </div>
+              <div class="time">June 2025 — Present</div>
+              <div class="desc">Designed CPU–GPU layer‑offloading strategies for CNN inference on NVIDIA Jetson devices; measured throughput/latency tradeoffs and energy efficiency.</div>
+            </div>
+            <div class="item">
+              <div>
+                <div class="role">Visiting Undergraduate Researcher · IITD SeNSE</div>
+                <div class="org">Indian Institute of Technology, Delhi</div>
+              </div>
+              <div class="time">June 2024 — September 2024</div>
+              <div class="desc">Developed profiling scripts and scheduling heuristics for heterogeneous workloads; authored documentation and reproducible benchmarks.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="education" class="section">
+          <div class="block">
+            <h2>Education</h2>
+            <div class="item">
+              <div>
+                <div class="role">B.S. in Computer Engineering</div>
+                <div class="org">University of California, San Diego · CSE</div>
+              </div>
+              <div class="time">Expected 2026</div>
+              <div class="desc">Selected coursework: Computer Architecture, Embedded Systems, Algorithms, Probability, Discrete Math.</div>
+            </div>
+            <div class="item">
+              <div>
+                <div class="role">A.S. in Computer Science, Mathematics, and Physics</div>
+                <div class="org">Orange Coast College</div>
+              </div>
+              <div class="time">Graduated 2024</div>
+              <div class="desc">President of STEM Club, STEM Peer Mentor, Garrison Honors Program, Dean's List. </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <div class="block">
+            <h2>Projects</h2>
+            <div class="item">
+              <div class="role">Unified Splitting Toolkit</div>
+              <div class="time">2025</div>
+              <div class="desc">Single‑file utilities to split CNNs across CPU/GPU, with CSV logging and plotting. <a href="#">GitHub</a></div>
+            </div>
+            <div class="item">
+              <div class="role">Foci Parser Web App</div>
+              <div class="time">2025</div>
+              <div class="desc">Standalone HTML/JS app that parses lab logs into Excel‑ready columns with explicit zeros and sorting.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="publications" class="section">
+          <div class="block">
+            <h2>Publications & Talks</h2>
+            <div class="item">
+              <div class="role">UCSD Summer Research Conference (SRC) 2025 · Unified Splitting</div>
+              <div class="time">August 2025</div>
+              <div class="desc">Presented pipeline optimizations for CPU–GPU split inference on edge devices; results reproduced across multiple Jetson platforms.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" class="section">
+          <div class="block">
+            <h2>Skills</h2>
+            <div class="pillset">
+              <span class="pill">Python</span>
+              <span class="pill">C/C++</span>
+              <span class="pill">SystemVerilog</span>
+              <span class="pill">Pandas</span>
+              <span class="pill">PyTorch</span>
+              <span class="pill">Jetson Orin/Xavier/Nano</span>
+              <span class="pill">Linux</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
-</nav>
-<!-- Navigation Bar Ends  -->
+  </main>
 
-<!-- Navigation Bar Mobile -->
-<nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-hidden@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    
-    <div class="uk-navbar-left">
-        <a href="" class="uk-navbar-item uk-logo uk-light">Ayushmaan Puri</a>
+  <footer class="site">
+    <div class="wrap site-foot">
+      <div>© <span id="year"></span> · Ayushmaan Puri</div>
+      <div><a href="#about">Back to top</a></div>
     </div>
-    <div class="uk-navbar-right">
+  </footer>
 
-        <ul class="uk-navbar-nav uk-light">
-            <li><button uk-toggle="target: #offcanvas-nav" type="button" uk-navbar-toggle-icon></button></li>
-
-        </ul>
-
-    </div>
-</nav>
-<!-- Change This -->
-<div id="offcanvas-nav" uk-offcanvas="overlay: true">
-    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
-
-        <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
-            <li class="uk-active"><a href="#" uk-scroll>Home</a></li>
-            <li class="uk-active"><a href="#about" uk-scroll>About</a></li>
-            <li class="uk-active"><a href="#projects" uk-scroll>Projects</a></li>
-            <li class="uk-active"><a href="mailto:">Contact</a></li> <!--- change to ur email-->
-
-        </ul>
-
-
-
-
-    </div>
-</div>
-
-<!-- Navigation Bar Mobile Ends -->
-<!-- Home -->
-<section class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-    <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right">I'm Ayushmaan Puri, a Computer Engineer, <br>Researcher, and an Educator.</h1>
-    <a href="#about" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>About Me</a>
-    <div style="text-align: right;" class="parent-container">
-        <img src="path/to/your-photo.jpg" alt="Ayushmaan Puri" class="profile-photo">
-    </div>
-
-</section>
-
-<!-- Home Ends -->
-<br>
-
-
-<hr class="uk-margin-xlarge-top uk-margin-xlarge-left uk-margin-xlarge-right">
-
-<!-- About Me -->
-<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-<h3 class="uk-margin-xlarge-left uk-light">About Me</h3>
-<!-- Change here to ur paragraph -->
-<p class="uk-margin-xlarge-left uk-margin-xlarge-right">Currently at UC San Diego, I am studying <b>Computer Engineering</b> and will be graduating in Spring 2026. My interests lie in interests in Computer Architecture, Embedded Systems, and PCB Design.
-    In these fields, I primarily interested in research. Beyond academia, I'm committed to promoting STEM education and fostering creativity. I believe that everyone should have access to the tools and resources they need to succeed in STEM fields.
-    As an aspiring PhD student, I am eager to contribute to the advancement of knowledge in my field and to inspire the next generation of engineers and scientists. I will be applying to PhD programs to start in the Fall of 2026.
-    If you are interested in my work or would like to collaborate on a project, <b>please feel free to reach out to me.</b> I am always open to new opportunities and ideas.</p>
-<a href="https://github.com/aypuri" class="uk-margin-xlarge-left uk-light uk-button-text" uk-icon="github"></a> &nbsp;<a href="https://linkedin.com/in/aypuri" class=" uk-light uk-button-text" uk-icon="linkedin"></a>
-
-<!-- About Me Ends -->
-
-
-
-
-</section>
-
-<!-- Projects Section -->
-<hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
-<section id="projects" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-<h3 class="uk-margin-xlarge-left uk-light">Projects</h3>
-<p class="uk-margin-xlarge-left">Projects that i've been working on</p>
-
-<div class="uk-margin-xlarge-left uk-margin-xlarge-right">
-    <!-- Change all of this to ur projects -->
-    <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-        <h4>Project Name</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a class="uk-button-text uk-text-decoration-none" href="">
-            <span uk-icon="icon: link">
-            </span> Website Link </a>
-        </div>
-        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-            <h4>Project Name</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="uk-button-text uk-text-decoration-none" href="">
-                <span uk-icon="icon: link">
-                </span> Website Link </a>
-            </div></div>
-
-
-
-    <br>
-
-
-</section>
-<hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
-</div>
-<!-- Projects Section Ends -->
-    
+    <script src="scripts.js"></script>
 </body>
 </html>
