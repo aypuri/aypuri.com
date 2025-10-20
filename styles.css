@@ -3,7 +3,7 @@
       --bg: #f7f7f8;         /* plain grey background */
       --text: #222222;       /* neutral-900 */
       --muted: #6b7280;      /* slate-500 */
-      --accent: #222222;     /* blue-600 */
+      --accent: #1c1d1d;     /* blue-600 */
       --border: #e5e7eb;     /* gray-200 */
       --card: #ffffff;       /* white cards on grey canvas */
 
@@ -11,7 +11,7 @@
       --bg-dark: #2a2b2c;
       --text-dark: #e5e7eb;
       --muted-dark: #9aa4b2;
-      --accent-dark: #555758;
+      --accent-dark: #e5e7eb;
       --border-dark: #222222;
       --card-dark: #1a1a1b;
 
@@ -54,7 +54,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-    a { color: var(--accent); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none;}
     a:hover { text-decoration: underline; }
 
     /* Layout */
@@ -66,7 +66,7 @@
       border-bottom: 1px solid var(--border);
     }
     .site-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; }
-    .brand { display: flex; align-items: center; gap: 10px; font: 800 var(--fs-2)/1 var(--font-ui); }
+    .brand { display: flex; align-items: center; gap: 10px; font: 800 var(--fs-2)/1 var(--font-ui);}
     .brand .logo { width: 28px; height: 28px; border-radius: 8px; display: grid; place-items: center; background: var(--text); color: var(--bg); font: 800 14px/1 var(--font-ui); }
     nav a { color: inherit; opacity: .9; margin-left: 14px; font: 600 var(--fs-0)/1 var(--font-ui); }
     nav a:hover { opacity: 1; }
