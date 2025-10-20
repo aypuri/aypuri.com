@@ -44,5 +44,30 @@ function applyMobileStyles() {
     }
 }
 
+// News section toggle functionality
+let newsExpanded = false;
+
+function toggleNews() {
+    const hiddenItems = document.querySelectorAll('.news-item.hidden');
+    const toggleBtn = document.getElementById('news-toggle-btn');
+    
+    if (!newsExpanded) {
+        // Show all hidden items
+        hiddenItems.forEach(item => {
+            item.classList.remove('hidden');
+        });
+        toggleBtn.textContent = 'Show less';
+        newsExpanded = true;
+    } else {
+        // Hide items beyond the first 3
+        const allItems = document.querySelectorAll('.news-item');
+        for (let i = 3; i < allItems.length; ++i) {
+            allItems[i].classList.add('hidden');
+        }
+        toggleBtn.textContent = 'Show more';
+        newsExpanded = false;
+    }
+}
+
 // Call the function when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", applyMobileStyles);
