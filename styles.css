@@ -133,7 +133,7 @@
       color: var(--muted);
       font-weight: 500;
       display: inline-block;
-      width: 80px;
+      width: 85px;
     }
 
     .news-item.hidden {
@@ -156,18 +156,6 @@
       cursor: pointer;
       font-family: var(--font-ui);
       opacity: 0.7;
-    }
-
-    /* Favicon inversion */
-    link[rel="icon"] {
-      filter: invert(1);
-    }
-
-    /* Or if you want it to only invert in dark mode */
-    @media (prefers-color-scheme: dark) {
-      link[rel="icon"] {
-        filter: invert(1);
-      }
     }
 
     @media (max-width: 480px){
