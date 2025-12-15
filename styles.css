@@ -1,11 +1,11 @@
 :root {
       /* Colors */
-      --bg: #f7f7f8;         /* plain grey background */
+      --bg: #ffe5b9;         /* plain grey background */
       --text: #222222;       /* neutral-900 */
       --muted: #6b7280;      /* slate-500 */
       --accent: #1c1d1d;     /* blue-600 */
       --border: #e5e7eb;     /* gray-200 */
-      --card: #ffffff;       /* white cards on grey canvas */
+      --card: #fdeccf;       /* white cards on grey canvas */
 
       /* Dark mode */
       --bg-dark: #2a2b2c;
