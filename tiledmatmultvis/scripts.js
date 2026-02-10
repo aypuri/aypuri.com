@@ -91,24 +91,13 @@ function createMatrix(data, id) {
 }
 
 function renderVisualization() {
-    const viz = document.getElementById('visualization');
-    viz.innerHTML = '';
+    document.getElementById('matrixA-container').innerHTML = '';
+    document.getElementById('matrixB-container').innerHTML = '';
+    document.getElementById('matrixC-container').innerHTML = '';
     
-    viz.appendChild(createMatrix(matrixA, 'A'));
-    
-    const op1 = document.createElement('div');
-    op1.className = 'operator';
-    op1.textContent = '×';
-    viz.appendChild(op1);
-    
-    viz.appendChild(createMatrix(matrixB, 'B'));
-    
-    const op2 = document.createElement('div');
-    op2.className = 'operator';
-    op2.textContent = '=';
-    viz.appendChild(op2);
-    
-    viz.appendChild(createMatrix(matrixC, 'C'));
+    document.getElementById('matrixA-container').appendChild(createMatrix(matrixA, 'A'));
+    document.getElementById('matrixB-container').appendChild(createMatrix(matrixB, 'B'));
+    document.getElementById('matrixC-container').appendChild(createMatrix(matrixC, 'C'));
 }
 
 function clearHighlights() {

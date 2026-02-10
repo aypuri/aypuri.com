@@ -1,16 +1,17 @@
 body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        max-width: 1400px;
+        max-width: 100%;
         margin: 0 auto;
-        padding: 20px;
+        padding: clamp(10px, 2vw, 20px);
         background: #f5f5f5;
     }
     
     .container {
         background: white;
-        padding: 30px;
+        padding: clamp(15px, 2vw, 30px);
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        zoom: 0.8;
     }
     
     h1 {
@@ -55,14 +56,14 @@ body {
     }
     
     .cell {
-        width: 35px;
-        height: 35px;
+        width: clamp(18px, 2.5vw, 35px);
+        height: clamp(18px, 2.5vw, 35px);
         display: flex;
         align-items: center;
         justify-content: center;
         background: white;
         border: 1px solid #bdc3c7;
-        font-size: 12px;
+        font-size: clamp(8px, 1vw, 12px);
         transition: all 0.3s ease;
         cursor: pointer;
     }
@@ -104,17 +105,26 @@ body {
     }
     
     .controls {
-        text-align: center;
-        margin: 30px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         padding: 20px;
         background: #ecf0f1;
         border-radius: 8px;
     }
+
+    .speed-control {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
     
     button {
-        padding: 12px 24px;
-        margin: 5px;
-        font-size: 16px;
+        padding: clamp(6px, 0.8vw, 12px) clamp(12px, 1.5vw, 24px);
+        margin: 3px;
+        font-size: clamp(12px, 1.2vw, 16px);
         cursor: pointer;
         background: #3498db;
         color: white;
@@ -135,9 +145,23 @@ body {
     .info-panel {
         background: #34495e;
         color: white;
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
         margin: 20px 0;
+    }
+
+    .right-column .info-panel {
+        margin: 0;
+        font-size: 13px;
+    }
+
+    .right-column .info-panel h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .right-column .step-info {
+        line-height: 1.5;
     }
     
     .info-panel h3 {
@@ -198,3 +222,80 @@ body {
         align-items: center;
         justify-content: center;
     }
+    .visualization-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+    }
+
+    .top-section {
+        display: flex;
+        gap: 0;
+        align-items: flex-end;
+    }
+
+    .bottom-section {
+        display: flex;
+        gap: clamp(10px, 2vw, 30px);
+        align-items: flex-start;
+    }
+
+    .spacer {
+        width: clamp(180px, 25vw, 345px); /* Approximate width of matrix A + padding */
+    }
+    .header-section {
+        margin-bottom: 10px;
+    }
+
+    .title-area {
+        text-align: left;
+    }
+
+    .title-area h1 {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .title-area .subtitle {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .legend {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        align-items: flex-start;
+    }
+
+    .main-layout {
+        display: flex;
+        gap: 0;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .left-column {
+        flex-shrink: 0;
+        margin-right: clamp(-300px, -20vw, -100px);
+        z-index: 1;
+    }
+
+    .center-column {
+        flex-shrink: 0;
+    }
+
+    .right-column {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin-left: clamp(15px, 2vw, 30px);
+        margin-top: 30px;
+        gap: 15px;
+        max-width: 250px;
+    }
+

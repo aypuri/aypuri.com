@@ -8,48 +8,66 @@
 </head>
 <body>
     <div class="container">
-        <h1>OpenCL Tiled Matrix Multiplication</h1>
-        <p class="subtitle">C = A × B using 4×4 tiles</p>
-        
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-box tile-highlight"></div>
-                <span>Current Tile</span>
+        <div class="main-layout">
+            <div class="left-column">
+                <div class="title-area">
+                    <h1>Tiled Matrix Multiplication</h1>
+                    <p class="subtitle">C = A × B using 4×4 tiles</p>
+                    
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-box tile-highlight"></div>
+                            <span>Current Tile</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box active-row"></div>
+                            <span>Active Row (A)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box active-col"></div>
+                            <span>Active Column (B)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-box result-cell"></div>
+                            <span>Result Cell</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="legend-item">
-                <div class="legend-box active-row"></div>
-                <span>Active Row (A)</span>
+            
+            <div class="center-column">
+                <div class="visualization-wrapper">
+                    <div class="top-section">
+                        <div class="spacer"></div>
+                        <div id="matrixB-container"></div>
+                    </div>
+                    <div class="bottom-section">
+                        <div id="matrixA-container"></div>
+                        <div id="matrixC-container"></div>
+                    </div>
+                </div>
+                <div class="computation" id="computation">Click "Start Animation" to begin</div>
             </div>
-            <div class="legend-item">
-                <div class="legend-box active-col"></div>
-                <span>Active Column (B)</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-box result-cell"></div>
-                <span>Result Cell</span>
-            </div>
-        </div>
-        
-        <div class="visualization" id="visualization"></div>
-        
-        <div class="computation" id="computation">Click "Start Animation" to begin</div>
-        
-        <div class="controls">
-            <button id="startBtn" onclick="startAnimation()">Start Animation</button>
-            <button id="pauseBtn" onclick="pauseAnimation()" disabled>Pause</button>
-            <button id="resetBtn" onclick="resetAnimation()">Reset</button>
-            <button onclick="stepForward()">Step Forward</button>
-            <button onclick="stepBackward()">Step Backward</button>
-            <br><br>
-            <label>Speed: </label>
-            <input type="range" id="speedSlider" min="500" max="3000" value="1500" step="100">
-            <span id="speedLabel">1.5s</span>
-        </div>
-        
-        <div class="info-panel">
-            <h3>Current Step</h3>
-            <div class="step-info" id="stepInfo">
-                Ready to start. The animation will show how work-items cooperatively load tiles into local memory and compute partial results.
+            
+            <div class="right-column">
+                <div class="controls">
+                    <button id="startBtn" onclick="startAnimation()">Start Animation</button>
+                    <button id="pauseBtn" onclick="pauseAnimation()" disabled>Pause</button>
+                    <button id="resetBtn" onclick="resetAnimation()">Reset</button>
+                    <button onclick="stepForward()">Step Forward</button>
+                    <button onclick="stepBackward()">Step Backward</button>
+                    <div class="speed-control">
+                        <label>Speed: </label>
+                        <input type="range" id="speedSlider" min="500" max="3000" value="1500" step="100">
+                        <span id="speedLabel">1.5s</span>
+                    </div>
+                </div>
+                <div class="info-panel">
+                    <h3>Current Step</h3>
+                    <div class="step-info" id="stepInfo">
+                        Ready to start. The animation will show how work-items cooperatively load tiles into local memory and compute partial results.
+                    </div>
+                </div>
             </div>
         </div>
         
