@@ -49,16 +49,17 @@
         <div class="info-panel">
             <h3>Current Step</h3>
             <div class="step-info" id="stepInfo">
-                Ready to start. The animation will show how threads cooperatively load tiles into local memory and compute partial results.
+                Ready to start. The animation will show how work-items cooperatively load tiles into local memory and compute partial results.
             </div>
         </div>
         
         <div class="info-panel">
             <h3>Key Concepts</h3>
             <div class="step-info">
-                <strong>Tiling Strategy:</strong> Instead of each thread loading all data from global memory, threads in a work-group cooperate to load shared 4×4 tiles into fast local memory.<br><br>
-                <strong>Thread Cooperation:</strong> Each thread loads one element into Asub and Bsub, then all threads can reuse these 16 values.<br><br>
-                <strong>Memory Efficiency:</strong> Each value is loaded once from slow global memory but used 4 times, reducing memory bandwidth by 4× (16× for actual 16×16 tiles).
+                <strong>Tiling Strategy:</strong> Instead of each work-item loading all data from global memory, work-items in a work-group cooperate to load shared 4×4 tiles into fast local memory.<br><br>
+                <strong>Work-Item Cooperation:</strong> Each work-item loads one element into Asub and Bsub, then all work-items in the work-group can reuse these 16 values.<br><br>
+                <strong>Memory Efficiency:</strong> Each value is loaded once from slow global memory but used 4 times, reducing memory bandwidth by 4× (16× for actual 16×16 tiles).<br><br>
+                <strong>Synchronization:</strong> <span class="code-highlight">barrier(CLK_LOCAL_MEM_FENCE)</span> ensures all work-items complete loading before computation begins.
             </div>
         </div>
     </div>

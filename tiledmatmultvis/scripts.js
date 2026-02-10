@@ -142,7 +142,7 @@ function visualizeStep(step) {
         document.getElementById('stepInfo').innerHTML = `
             <strong>Step: Load Tiles</strong><br>
             ${step.description}<br><br>
-            <span class="code-highlight">barrier(CLK_LOCAL_MEM_FENCE)</span> - All ${TILE_SIZE}×${TILE_SIZE}=${TILE_SIZE*TILE_SIZE} threads cooperatively load data into local memory.
+            <span class="code-highlight">barrier(CLK_LOCAL_MEM_FENCE)</span> - All ${TILE_SIZE}×${TILE_SIZE}=${TILE_SIZE*TILE_SIZE} work-items (threads) cooperatively load data into local memory.
         `;
         
         document.getElementById('computation').textContent = 'Loading tiles into __local memory (Asub and Bsub)...';
@@ -201,7 +201,7 @@ function visualizeStep(step) {
         document.getElementById('stepInfo').innerHTML = `
             <strong>Step: Compute</strong><br>
             ${step.description}<br><br>
-            Thread (${step.globalRow}, ${step.globalCol}) computes: <span class="code-highlight">sum += Asub[${step.localRow}][k] * Bsub[k][${step.localCol}]</span><br>
+            Work-item (${step.globalRow}, ${step.globalCol}) computes: <span class="code-highlight">sum += Asub[${step.localRow}][k] * Bsub[k][${step.localCol}]</span><br>
             Partial result for this tile: ${sum}
         `;
         
@@ -243,7 +243,7 @@ function resetAnimation() {
     renderVisualization();
     clearHighlights();
     document.getElementById('computation').textContent = 'Click "Start Animation" to begin';
-    document.getElementById('stepInfo').textContent = 'Ready to start. The animation will show how threads cooperatively load tiles into local memory and compute partial results.';
+    document.getElementById('stepInfo').textContent = 'Ready to start. The animation will show how work-items cooperatively load tiles into local memory and compute partial results.';
 }
 
 function stepForward() {
