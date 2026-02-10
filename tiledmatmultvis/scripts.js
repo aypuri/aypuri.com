@@ -247,8 +247,16 @@ function stepBackward() {
     pauseAnimation();
     if (currentStepIndex > 0) {
         currentStepIndex--;
-        // Reset C matrix to recompute
-        resetAnimation();
+        
+        // Reset C matrix values to zero
+        for (let i = 0; i < MATRIX_SIZE; i++) {
+            for (let j = 0; j < MATRIX_SIZE; j++) {
+                matrixC[i][j] = 0;
+                document.getElementById(`C-${i}-${j}`).textContent = '';
+            }
+        }
+        
+        // Recompute all steps up to the current step
         for (let i = 0; i < currentStepIndex; i++) {
             if (animationSteps[i].type === 'compute') {
                 const step = animationSteps[i];
@@ -264,8 +272,14 @@ function stepBackward() {
                 document.getElementById(`C-${step.globalRow}-${step.globalCol}`).textContent = matrixC[step.globalRow][step.globalCol];
             }
         }
+        
+        // Visualize the previous step (or clear if at start)
+        clearHighlights();
         if (currentStepIndex > 0) {
             visualizeStep(animationSteps[currentStepIndex - 1]);
+        } else {
+            document.getElementById('computation').textContent = 'Click "Start Animation" to begin';
+            document.getElementById('stepInfo').textContent = 'Ready to start. The animation will show how work-items cooperatively load tiles into local memory and compute partial results.';
         }
     }
 }
