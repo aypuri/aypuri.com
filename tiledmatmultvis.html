@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiled Matrix Multiplication Visualization</title>
+    <link rel="stylesheet" href="tiledmatmultvis.css">
+</head>
+<body>
+    <div class="container">
+        <h1>OpenCL Tiled Matrix Multiplication</h1>
+        <p class="subtitle">C = A × B using 4×4 tiles (simplified from 16×16)</p>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box tile-highlight"></div>
+                <span>Current Tile</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box active-row"></div>
+                <span>Active Row (A)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box active-col"></div>
+                <span>Active Column (B)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box result-cell"></div>
+                <span>Result Cell</span>
+            </div>
+        </div>
+        
+        <div class="visualization" id="visualization"></div>
+        
+        <div class="computation" id="computation">Click "Start Animation" to begin</div>
+        
+        <div class="controls">
+            <button id="startBtn" onclick="startAnimation()">Start Animation</button>
+            <button id="pauseBtn" onclick="pauseAnimation()" disabled>Pause</button>
+            <button id="resetBtn" onclick="resetAnimation()">Reset</button>
+            <button onclick="stepForward()">Step Forward</button>
+            <button onclick="stepBackward()">Step Backward</button>
+            <br><br>
+            <label>Speed: </label>
+            <input type="range" id="speedSlider" min="500" max="3000" value="1500" step="100">
+            <span id="speedLabel">1.5s</span>
+        </div>
+        
+        <div class="info-panel">
+            <h3>Current Step</h3>
+            <div class="step-info" id="stepInfo">
+                Ready to start. The animation will show how threads cooperatively load tiles into local memory and compute partial results.
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h3>Key Concepts</h3>
+            <div class="step-info">
+                <strong>Tiling Strategy:</strong> Instead of each thread loading all data from global memory, threads in a work-group cooperate to load shared 4×4 tiles into fast local memory.<br><br>
+                <strong>Thread Cooperation:</strong> Each thread loads one element into Asub and Bsub, then all threads can reuse these 16 values.<br><br>
+                <strong>Memory Efficiency:</strong> Each value is loaded once from slow global memory but used 4 times, reducing memory bandwidth by 4× (16× for actual 16×16 tiles).
+            </div>
+        </div>
+    </div>
+
+    <script src="tiledmatmultvis.js"></script>
+</body>
+</html>
