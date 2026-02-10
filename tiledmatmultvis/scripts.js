@@ -256,8 +256,8 @@ function stepBackward() {
             }
         }
         
-        // Recompute all steps up to the current step
-        for (let i = 0; i < currentStepIndex; i++) {
+        // Recompute all steps up to (but not including) the step we'll visualize
+        for (let i = 0; i < currentStepIndex - 1; i++) {
             if (animationSteps[i].type === 'compute') {
                 const step = animationSteps[i];
                 let sum = 0;
