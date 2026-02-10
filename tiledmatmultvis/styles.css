@@ -2,13 +2,13 @@ body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         max-width: 100%;
         margin: 0 auto;
-        padding: clamp(10px, 2vw, 20px);
+        padding: 20px;
         background: #f5f5f5;
     }
     
     .container {
         background: white;
-        padding: clamp(15px, 2vw, 30px);
+        padding: 30px;
         border-radius: 12px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         zoom: 0.8;
@@ -56,14 +56,14 @@ body {
     }
     
     .cell {
-        width: clamp(18px, 2.5vw, 35px);
-        height: clamp(18px, 2.5vw, 35px);
+        width: 35px;
+        height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: white;
         border: 1px solid #bdc3c7;
-        font-size: clamp(8px, 1vw, 12px);
+        font-size: 12px;
         transition: all 0.3s ease;
         cursor: pointer;
     }
@@ -238,12 +238,12 @@ body {
 
     .bottom-section {
         display: flex;
-        gap: clamp(10px, 2vw, 30px);
+        gap: 30px;
         align-items: flex-start;
     }
 
     .spacer {
-        width: clamp(180px, 25vw, 345px); /* Approximate width of matrix A + padding */
+        width: 345px; /* Approximate width of matrix A + padding */
     }
     .header-section {
         margin-bottom: 10px;
@@ -280,7 +280,7 @@ body {
 
     .left-column {
         flex-shrink: 0;
-        margin-right: clamp(-300px, -20vw, -100px);
+        margin-right: -300px;
         z-index: 1;
     }
 
@@ -293,7 +293,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        margin-left: clamp(15px, 2vw, 30px);
+        margin-left: 30px;
         margin-top: 30px;
         gap: 15px;
         max-width: 250px;
