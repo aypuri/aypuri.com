@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.4)  18 MAY 2026 15:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.4)  18 MAY 2026 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -306,8 +306,7 @@ tex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box56
-)
-No file AyushmaanPuri_resume.aux.
+) (AyushmaanPuri_resume.aux)
 \openout1 = `AyushmaanPuri_resume.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
@@ -345,6 +344,7 @@ ii
 \everyMPtoPDFconversion=\toks27
 )
 Package hyperref Info: Link coloring ON on input line 106.
+ (AyushmaanPuri_resume.out) (AyushmaanPuri_resume.out)
 \@outlinefile=\write3
 \openout3 = `AyushmaanPuri_resume.out'.
 
@@ -387,20 +387,14 @@ L3 programming layer <2024-08-30>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-Package rerunfilecheck Warning: File `AyushmaanPuri_resume.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `AyushmaanPuri_resume.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  0E40D37882D4366FAD64FE58CD6ECC4B;438.
+Package rerunfilecheck Info: File `AyushmaanPuri_resume.out' has not changed.
+(rerunfilecheck)             Checksum: 0E40D37882D4366FAD64FE58CD6ECC4B;438.
  ) 
 Here is how much of TeX's memory you used:
- 10823 strings out of 473899
- 172517 string characters out of 5726500
- 613903 words of memory out of 5000000
- 33576 multiletter control sequences out of 15000+600000
+ 10836 strings out of 473899
+ 172859 string characters out of 5726500
+ 613912 words of memory out of 5000000
+ 33583 multiletter control sequences out of 15000+600000
  564268 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,338b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -414,9 +408,9 @@ grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ayush/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ayush/A
 ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users
 /ayush/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on AyushmaanPuri_resume.pdf (1 page, 141827 bytes).
+Output written on AyushmaanPuri_resume.pdf (1 page, 143237 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
+ 85 PDF objects out of 1000 (max. 8388607)
  6 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
