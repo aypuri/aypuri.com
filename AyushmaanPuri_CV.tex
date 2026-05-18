@@ -1,0 +1,258 @@
+%-------------------------
+% CV in Latex
+% Based on Jake Gutierrez Resume Template
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.75in}
+\addtolength{\evensidemargin}{-0.75in}
+\addtolength{\textwidth}{1.5in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.6in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-8pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-9pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    % \vspace{-6pt}
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+    \textbf{\huge \scshape Ayushmaan Puri} \\ \vspace{1pt}
+    \small (657) 610-5635 $|$ \href{mailto:ayushmaan.puri18@gmail.com}{\underline{ayushmaan.puri18@gmail.com}} $|$ 
+    \href{https://www.aypuri.com}{\underline{www.aypuri.com}} $|$
+    \href{https://github.com/aypuri}{\underline{github.com/aypuri}}
+\end{center}
+\vspace{-25pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of California, San Diego}{Expected August 2026}
+      {B.S. CSE: Computer Engineering}{GPA 3.50/4.0}
+      % \resumeItem{{\footnotesize \textbf{Relevant Coursework:} Computer Architecture, Parallel Programming with OpenCL, Embedded Systems Design, Operating Systems, Digital Design with SystemVerilog, Digital Circuits, Signal Analysis, Advanced Data Structures and Algorithms}}
+    \resumeSubheading
+      {Orange Coast College}{Aug 2022 - May 2024}
+      {A.S. for Transfer: Computer Science, Mathematics, and Physics}{Graduated with Honors}
+  \resumeSubHeadingListEnd
+
+%-----------RESEARCH EXPERIENCE-----------
+\section{Research Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Undergraduate Researcher $|$ \href{https://www.aypuri.com/redacted.html}{Junkyard Autograder}}{April 2026 -- Present}
+      {Kastner Research Group -- UC San Diego}{La Jolla, CA}
+      \resumeItemListStart
+        \resumeItem{Investigating repurposing discarded smartphones as a dedicated autograding cluster to replace oversubscribed GPU pods shared across a class of 330 students.}
+        \resumeItem{Deployed a 40-node k3s Kubernetes cluster on ARM64 Google Pixel Fold devices running Debian over USB Ethernet; configured each node as an isolated Linux execution environment for containerized grading jobs.}
+        \resumeItem{Modeled real submission timing and runtime distributions from 8 programming assignments using Gaussian Mixture Models with BIC-selected component counts.}
+        \resumeItem{Built a synthetic workload generator sampling from fitted GMMs to stress test cluster throughput and determine the minimum phone count needed to serve a class without queuing delays.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Undergraduate Researcher $|$ \href{https://github.com/Ray149s/unifiedsplitting-orin/}{UnifiedSplitting}}{June 2025 -- March 2026}
+      {PatLab \& UC Scholars Research Program -- UC San Diego}{La Jolla, CA}
+      \resumeItemListStart
+        \resumeItem{Built heterogeneous CPU-GPU pipelines for efficient CNN inference on unified memory architectures.}
+        \resumeItem{Implemented model-splitting strategies for parallel CPU-GPU inference on NVIDIA Jetson devices.}
+        \resumeItem{Profiled per-layer CPU-to-GPU speedup ratios across full network architectures, identifying a 10x gap between convolutional layers (300--500x) and fully connected layers (30--40x) that informed the optimal splitting point.}
+        \resumeItem{Validated the approach across five architectures (ResNet-18/50, MobileNetV2, EfficientNet-B2, ViT-Tiny) and six simulated edge hardware profiles, achieving 8--24\% throughput gains over GPU-only baselines.}
+        \resumeItem{Wrote and presented a \href{https://www.aypuri.com/SRC_paper.pdf}{methods paper} at UCSD Summer Research Conference 2025 and Southern California Conference for Undergraduate Research 2025. Recognized nationally by the CRA for outstanding research.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Summer Research Intern $|$ \href{https://github.com/aypuri/iitd_sense_research/}{Active Thermography for Defect Detection}}{June 2024 -- Sep. 2024}
+      {SeNSE -- Indian Institute of Technology, Delhi}{New Delhi, India}
+      \resumeItemListStart
+        \resumeItem{Developed a per-pixel signal processing pipeline in Python (OpenCV, NumPy, SciPy) to detect subsurface defects in Carbon and Glass Fibre-Reinforced Polymer (CFRP/GFRP) composites using active thermography.}
+        \resumeItem{Implemented linear detrending, full temporal cross-correlation against a sound reference pixel, main lobe extraction, and FFT phase computation across three experimental datasets (LFM, Active Pulsed, and Flux excitation).}
+        \resumeItem{Demonstrated that the FFT phase of the correlation main lobe produces qualitatively distinct signatures for defective vs. healthy material regions, establishing a new discriminating observable for non-destructive evaluation. Recorded results and findings in a \href{https://www.aypuri.com/SeNSE_Paper.pdf}{research paper}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Summer Research Intern $|$ \href{https://www.aypuri.com/NASA\%20Ca_SGC\%20Final\%20Poster.pdf}{Lunar Rover Modeling}}{June 2023 -- Aug. 2023}
+      {NASA California Space Grant Consortium}{Costa Mesa, CA}
+      \resumeItemListStart
+        \resumeItem{Designed and built a model lunar lava tube exploration rover using a rocker-bogie chassis, solar-powered with lithium-polymer battery storage.}
+        \resumeItem{Developed Arduino firmware integrating UV, Hall effect magnetic, and gravimeter sensors to detect water-ice signatures, iron-rich rock, and subsurface density anomalies.}
+        \resumeItem{Implemented on-board SD card data logging for sensor telemetry and an object avoidance drive system for autonomous navigation over loose regolith.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS AND TALKS-----------
+\section{Publications and Talks}
+  \resumeSubHeadingListStart
+    % \resumeProjectHeading
+    %     {\textbf{UnifiedSplitting: Practical Pipeline-Parallel Inference on Unified Memory Architectures}}{2026}
+    %     \resumeItemListStart
+    %       \resumeItem{Project in progress. Formal submission to an international conference (TBD 2026).}
+    %     \resumeItemListEnd
+    \resumeProjectHeading
+        {\textbf{SCCUR: Southern California Conference for Undergraduate Research}}{Nov. 2025}
+        \resumeItemListStart
+          \resumeItem{Oral presentation on UnifiedSplitting at CSU Channel Islands with Fahad Alkhazam and Parth Mehta.\newline\href{https://docs.google.com/presentation/d/1FSYJOcpmSsdAtHpGBS3yf0Wk7LeUv1JoV2OA4ryuJx0/edit?usp=sharing}{[\,Slides\,]} \href{https://airtable.com/embed/appJNFWOkOHEz40pf/shr7QSuLwvThEw3Qj/tblzSg4QbAxZa1rz1/viwUCRZa4JLZpt3bm/reck8rJNek41xyWqu}{[\,Abstract\,]}}
+        \resumeItemListEnd
+    \resumeProjectHeading
+        {\textbf{UC San Diego Summer Research Conference (SRC 2025)}}{Aug. 2025}
+        \resumeItemListStart
+          \resumeItem{Presented pipeline optimizations for CPU--GPU split inference on edge devices. Results reproduced across Jetson platforms. \href{https://www.aypuri.com/SRC_paper.pdf}{[\,Paper\,]} \href{https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf\#page=292}{[\,Abstract\,]}}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------AWARDS AND HONORS-----------
+\newpage
+\section{Awards and Honors}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+        {\textbf{CRA Outstanding Undergraduate Researcher Honorable Mention}  $|$ \emph{Computing Research Association}}{Jan. 2026}
+    \resumeProjectHeading
+        {\textbf{UC Scholar}  $|$ \emph{UC San Diego}}{May 2025}
+    \resumeProjectHeading
+        {\textbf{George Ciarlo Memorial Scholarship} $|$ \emph{Orange Coast College}}{Apr. 2024}\newline
+  \resumeSubHeadingListEnd
+%-----------TEACHING AND MENTORSHIP-----------
+\section{Teaching and Mentorship}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {STEM Peer Mentor}{Aug. 2023 -- May 2024}
+      {OCC STEM Academy / MESA Program}{Costa Mesa, CA}
+      \resumeItemListStart
+        \resumeItem{Mentored and tutored 17 first-generation STEM students, providing weekly one-on-one guidance, email check-ins, and long-term academic planning support.}
+        \resumeItem{Organized and led workshops on career development, internships, and transfer preparation, increasing student awareness of opportunities beyond community college.}
+        \resumeItem{Co-managed daily operations of the STEM/MESA Center with 6 peer mentors, coordinating tutoring schedules, student outreach, and resource distribution.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Volunteer Teaching Assistant}{July 2023 -- Feb. 2024}
+      {Microsoft TEALS Program}{Houston, TX (Remote)}
+      \resumeItemListStart
+        \resumeItem{Co-taught CS Discoveries curriculum twice weekly to a class of 26 middle school students, integrating lessons on programming logic and problem-solving.}
+        \resumeItem{Collaborated with teachers to adapt instruction for a hybrid learning environment, ensuring equitable participation in both in-person and virtual settings.}
+        \resumeItem{Designed a sustainable CS education framework for Santa Fe Junior High, enabling the program to continue beyond the volunteer period.}
+      \resumeItemListEnd
+    
+    \resumeSubheading
+      {Honors Mathematics Tutor}{Jan. 2023 -- June 2023}
+      {OCC Student Success Center}{Costa Mesa, CA}
+      \resumeItemListStart
+        \resumeItem{Tutored 10--12 students daily in calculus (single and multi-variable), precalculus, trigonometry, and college algebra}
+        \resumeItem{Led study groups and exam review sessions for honors calculus 1.}
+        \resumeItem{Recognized by faculty and students for fostering a collaborative and motivating learning environment.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Tiled Matrix Multiplication Visualizer} $|$ \emph{HTML, JS, Parallel Programming}}{Feb. 2026}
+          \resumeItemListStart
+            \resumeItem{Built an interactive visualizer to demonstrate tiled matrix multiplication, data reuse, and memory access patterns.}
+            \resumeItem{Published at \href{https://www.aypuri.com/tiledmatmultvis/}{\underline{aypuri.com/tiledmatmultvis/}}}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{ESP32 Bluetooth Speaker} $|$ \emph{Microcontrollers, Circuit Design, C++}}{Apr. 2025}
+          \resumeItemListStart
+            \resumeItem{Built a Bluetooth speaker with a display showing title, artist, and album, powered by an ESP32 microcontroller.}
+            \resumeItem{Published code and video demo at \href{https://github.com/aypuri/RajmaBeats}{github}.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{DSA Visualizer} $|$ \emph{TypeScript, Web Development}}{Apr. 2024}
+          \resumeItemListStart
+            \resumeItem{Co-created a web application with a TypeScript back-end to help students visualize core data structures (linked lists, trees, graphs, stacks, queues), bridging theory with intuitive graphics.}
+            % \resumeItem{Engineered the TypeScript back-end to produce illustration-friendly representations of complex structures and support interactive user manipulations.}
+            \resumeItem{Published code on \href{https://github.com/aypuri/dsa-visualizer}{github} and deployed at \href{https://animated-octo-spork.vercel.app/}{animated-octo-spork.vercel.app}}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C/C++, Python, SystemVerilog, JavaScript, MIPS Assembly} \\[2pt]
+     \textbf{Frameworks \& Libraries}{: OpenCL, PyTorch, OpenCV, CUDA, NumPy/SciPy, scikit-learn} \\[2pt]
+     \textbf{Platforms \& Hardware}{: NVIDIA Jetson, Arduino, ESP32, ARM64 (Pixel Fold)} \\[2pt]
+     \textbf{Tools}{: Git, Linux, Kubernetes, Docker, MATLAB, Cadence Virtuoso} \\[2pt]
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
