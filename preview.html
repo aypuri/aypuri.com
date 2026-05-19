@@ -6,80 +6,8 @@
   <title>Ayushmaan Puri</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
   <style>
-    :root {
-      --bg:      #f5f2ee;
-      --fg:      #1a1a1a;
-      --mid:     #555555;
-      --faint:   #aaaaaa;
-      --line:    #e2ddd8;
-      --accent:  #2d6a4f;
-      --sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      --mono:    ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      background-attachment: fixed;
-      color: var(--fg);
-      font-family: var(--sans);
-      font-size: 15.5px;
-      line-height: 1.72;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-
-    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); }
-    a:hover { opacity: 0.7; }
-
-    /* full width — only padding, no max-width */
-    .col { padding: 0 200px; }
-
-    /* ── nav ──────────────────────────────────────────────── */
-    .site-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 48px 20px;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: var(--bg);
-    }
-    .logo-mark {
-      display: block;
-      width: 38px;
-      height: 28px;
-    }
-    .nav-items { display: flex; gap: 22px; }
-    .nav-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: var(--sans);
-      font-size: 13.5px;
-      color: var(--faint);
-      padding: 0;
-      transition: color .15s;
-      text-decoration: none;
-    }
-    .nav-btn:hover  { color: var(--accent); opacity: 1; }
-    .nav-btn.active { color: var(--accent); }
-
-    .fi {
-      opacity: 0;
-      animation: rise .28s ease forwards;
-    }
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(7px); }
-      to   { opacity: 1; transform: translateY(0);   }
-    }
-
-    /* ── home ─────────────────────────────────────────────── */
     .home-top {
       padding: 64px 0 0;
       display: grid;
@@ -139,14 +67,6 @@
       padding-bottom: 72px;
       border-top: 1px solid var(--line);
     }
-    .sec-label {
-      font-family: var(--mono);
-      font-size: 10.5px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 22px;
-    }
 
     .news-row {
       display: grid;
@@ -180,34 +100,9 @@
     }
     .show-more-btn:hover { color: var(--accent); }
 
-    /* footer */
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 32px 0 52px;
-    }
-    .foot-links {
-      display: flex;
-      gap: 20px;
-      font-size: 13px;
-      color: var(--mid);
-      flex-wrap: wrap;
-    }
-    .foot-links a { color: var(--mid); text-decoration: none; }
-    .foot-links a:hover { color: var(--fg); }
-    .foot-copy {
-      margin-top: 18px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--faint);
-    }
-
-    /* ── responsive ───────────────────────────────────────── */
     @media (max-width: 600px) {
-      .col { padding: 0 24px; }
-      .site-nav { padding: 22px 24px 18px; }
       .home-top { grid-template-columns: 1fr; gap: 28px; }
       .home-photo { display: none; }
-      .nav-items { gap: 14px; }
     }
   </style>
 </head>
@@ -242,11 +137,11 @@
       <h1 class="greeting">Ayushmaan Puri</h1>
       <div class="home-bio">
         <p>
-          I am a Computer Engineer and a researcher at UC San Diego.
-          My research bridges performance with environmental responsibility. 
+          I am a Computer Engineer and researcher at UC San Diego.
+          My research bridges performance with environmental responsibility.
         </p>
         <p>
-          Currently, I am working on repurposing discarded smartphones as parallel compute nodes for autograding programming assignments in large-scale programming courses. 
+          Currently, I am working on repurposing discarded smartphones as parallel compute nodes for autograding programming assignments in large-scale programming courses.
         </p>
       </div>
       <div class="home-tags">
@@ -321,13 +216,14 @@
       <span>aypuri [at] ucsd.edu</span>
       <a href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/aypuri" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://docs.google.com/document/d/19y4q07t-jG6VEzetlcm0LwE59ik_COHHdgkFJjzfBMU/edit?usp=sharing" target="_blank" rel="noopener">CV</a>
+      <a href="AyushmaanPuri_CV.pdf" target="_blank" rel="noopener">CV</a>
     </div>
     <div class="foot-copy">© <span id="yr"></span> Ayushmaan Puri</div>
   </footer>
 
 </div>
 
+<script src="site.js"></script>
 <script>
   let newsOpen = false;
   function toggleNews() {
@@ -337,8 +233,6 @@
     });
     document.getElementById('news-btn').textContent = newsOpen ? 'show less' : 'show more';
   }
-
-  document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
