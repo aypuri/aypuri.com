@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teaching - Ayushmaan Puri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #f5f2ee;
+      --fg:      #1a1a1a;
+      --mid:     #555555;
+      --faint:   #aaaaaa;
+      --line:    #e2ddd8;
+      --accent:  #2d6a4f;
+      --sans:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --mono:    ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      background-attachment: fixed;
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+    a:hover { opacity: 0.7; }
+
+    .col { padding: 0 200px; }
+
+    /* ── nav ──────────────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px 20px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+    }
+    .logo-mark {
+      display: block;
+      width: 38px;
+      height: 28px;
+    }
+    .nav-items { display: flex; gap: 22px; }
+    .nav-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: var(--faint);
+      padding: 0;
+      transition: color .15s;
+      text-decoration: none;
+    }
+    .nav-btn:hover  { color: var(--accent); opacity: 1; }
+    .nav-btn.active { color: var(--accent); }
+
+    .fi {
+      opacity: 0;
+      animation: rise .28s ease forwards;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: translateY(0);   }
+    }
+
+    /* ── view intro ───────────────────────────────────────── */
+    .view-intro {
+      font-size: 15.5px;
+      color: var(--mid);
+      line-height: 1.82;
+      padding: 56px 0 38px;
+    }
+    .view-intro a { color: var(--mid); }
+
+    .e-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    /* ── expandable entries ───────────────────────────────── */
+    .entries { border-top: 1px solid var(--line); }
+    .entry   { border-bottom: 1px solid var(--line); }
+
+    .entry-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 22px 0;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--sans);
+    }
+    .entry-btn:hover .e-title { opacity: 0.5; }
+
+    .entry-meta { flex: 1; }
+    .e-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      margin-bottom: 3px;
+      transition: opacity .15s;
+    }
+    .e-org {
+      display: block;
+      font-size: 12.5px;
+      color: var(--faint);
+    }
+    .e-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .e-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .e-arrow {
+      font-size: 13px;
+      color: var(--faint);
+      transition: transform .25s ease, color .15s;
+      user-select: none;
+    }
+    .entry.open .e-arrow { transform: rotate(180deg); color: var(--accent); }
+
+    .entry-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s ease;
+      overflow: hidden;
+    }
+    .entry.open .entry-body { grid-template-rows: 1fr; }
+
+    .entry-body-inner  { min-height: 0; overflow: hidden; }
+    .entry-body-content {
+      padding-bottom: 26px;
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.82;
+    }
+    .entry-body-content p + p { margin-top: 12px; }
+    .entry-body-content a { color: var(--mid); }
+
+    /* ── sub-sections ─────────────────────────────────────── */
+    .sub-section { padding-top: 48px; }
+    .sec-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+    .sub-entry {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.72;
+    }
+    .sub-entry:last-child { border-bottom: 1px solid var(--line); }
+    .sub-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 5px;
+    }
+    .sub-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+    .sub-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--faint);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sub-entry a { color: var(--mid); }
+
+    /* edu logo */
+    .sub-entry-inner {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .inst-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 2px;
+      opacity: 0.85;
+    }
+
+    /* footer */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0 52px;
+    }
+    .foot-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--mid);
+      flex-wrap: wrap;
+    }
+    .foot-links a { color: var(--mid); text-decoration: none; }
+    .foot-links a:hover { color: var(--fg); }
+    .foot-copy {
+      margin-top: 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--faint);
+    }
+
+    /* ── responsive ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .col { padding: 0 24px; }
+      .site-nav { padding: 22px 24px 18px; }
+      .nav-items { gap: 14px; }
+      .sub-head { flex-direction: column; gap: 2px; }
+      .e-right { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <svg class="logo-mark" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ayushmaan Puri">
+      <rect x="9" y="2" width="20" height="24" rx="1.5" stroke="var(--accent)" stroke-width="1.4"/>
+      <!-- <path d="M15 2 A4 3.5 0 0 0 23 2" stroke="var(--accent)" stroke-width="1.4"/> -->
+      <rect x="3" y="6"    width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="3" y="12.5" width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="3" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="29" y="6"    width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="29" y="12.5" width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="29" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <!-- <text x="19" y="17.5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7.5" font-weight="600" fill="var(--accent)">AP</text> -->
+    </svg>
+    <div class="nav-items">
+      <a class="nav-btn" href="preview.html">About</a>
+      <a class="nav-btn" href="research.html">Research</a>
+      <a class="nav-btn active" href="teaching.html">Teaching</a>
+    </div>
+  </nav>
+
+<div class="col">
+
+  <p class="view-intro fi" style="animation-delay:.05s">
+    I've been lucky to have some great opportunities to teach and mentor students in various capacities, from one-on-one tutoring to leading workshops and clubs. I care a lot about making STEM education more accessible and inclusive, and I try to bring that perspective into all the teaching I do. Here are some highlights — if you want to know more about any of it, or just want to chat about teaching in general, feel free to <a href="https://www.linkedin.com/in/aypuri/" target="_blank" rel="noopener">reach out on LinkedIn</a>!
+  </p>
+
+  <div class="entries fi" style="animation-delay:.14s">
+
+    <div class="entry" id="e-mesa">
+      <button class="entry-btn" onclick="toggle('e-mesa')">
+        <img class="e-logo" src="img/MESA_logo.png" alt="MESA" />
+        <div class="entry-meta">
+          <span class="e-title">STEM/MESA Peer Mentor</span>
+          <span class="e-org">Orange Coast College · STEM Academy + MESA</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Aug 2023 – May 2024</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          I directly mentored 17 students from underrepresented and low-income backgrounds
+          pursuing STEM majors at OCC. That meant weekly check-ins, help with transfer
+          applications and career planning, and being someone they could actually talk to
+          about the reality of being a first-gen student in STEM.
+        </p>
+        <p>
+          I also organized workshops on research skills, academic writing, and career development,
+          and served as president of the OCC STEM Club at the same time — the two roles overlapped
+          a lot, and I tried to make events useful to both groups.
+          Some <a href="https://www.linkedin.com/in/aypuri/" target="_blank" rel="noopener">pictures on LinkedIn</a> if you want to see what it looked like.
+        </p>
+      </div></div></div>
+    </div>
+
+    <div class="entry" id="e-teals">
+      <button class="entry-btn" onclick="toggle('e-teals')">
+        <img class="e-logo" src="img/Microsoft_icon.svg.png" alt="Microsoft" />
+        <div class="entry-meta">
+          <span class="e-title">Teaching Assistant, Microsoft TEALS</span>
+          <span class="e-org">Santa Fe Junior High</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Jul 2023 – Feb 2024</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          Through the Microsoft TEALS program, I helped build and run a CS education program
+          teaching Code.org's CS Principles curriculum to middle school students.
+          I worked closely with the classroom teacher to adapt pacing, run hands-on activities,
+          and find explanations that actually landed for that age group.
+        </p>
+        <p>
+          Watching students go from "I don't get why we're doing this" to
+          debugging their own programs was one of the better things I've experienced.
+        </p>
+      </div></div></div>
+    </div>
+
+    <div class="entry" id="e-tutor">
+      <button class="entry-btn" onclick="toggle('e-tutor')">
+        <img class="e-logo" src="img/SSC_logo.png" alt="Student Success Center" />
+        <div class="entry-meta">
+          <span class="e-title">Honors Mathematics Tutor</span>
+          <span class="e-org">Orange Coast College · Student Success Center</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Jan – May 2023</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          My first job. I tutored OCC students in Honors Calculus, Precalculus, Trigonometry,
+          College Algebra, and Statistics. I learned quickly that there's a real gap between
+          knowing something and knowing how to explain it — and that finding exactly where
+          someone's understanding breaks down is a skill in itself.
+        </p>
+        <p>
+          This is where I figured out that I actually enjoy teaching,
+          not just as something nice to put on a resume, but as something I want to keep doing.
+        </p>
+      </div></div></div>
+    </div>
+
+  </div>
+
+  <div class="sub-section fi" style="animation-delay:.22s; padding-bottom: 64px;">
+    <p class="sec-label">Education</p>
+    <div class="sub-entry">
+      <div class="sub-entry-inner">
+        <img class="inst-logo" src="img/UCSD-Seal-Logo.png" alt="UC San Diego" />
+        <div>
+          <div class="sub-head">
+            <span class="sub-title">B.S. Computer Engineering</span>
+            <span class="sub-date">exp. 2026</span>
+          </div>
+          University of California, San Diego
+        </div>
+      </div>
+    </div>
+    <div class="sub-entry">
+      <div class="sub-entry-inner">
+        <img class="inst-logo" src="img/OCC_logo.png" alt="Orange Coast College" />
+        <div>
+          <div class="sub-head">
+            <span class="sub-title">A.S. Computer Science, Mathematics, Physics</span>
+            <span class="sub-date">2024</span>
+          </div>
+          Orange Coast College
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="foot-links">
+      <span>aypuri [at] ucsd.edu</span>
+      <a href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/aypuri" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://docs.google.com/document/d/19y4q07t-jG6VEzetlcm0LwE59ik_COHHdgkFJjzfBMU/edit?usp=sharing" target="_blank" rel="noopener">CV</a>
+    </div>
+    <div class="foot-copy">© <span id="yr"></span> Ayushmaan Puri</div>
+  </footer>
+
+</div>
+
+<script>
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

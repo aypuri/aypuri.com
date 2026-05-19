@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research — Ayushmaan Puri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #f5f2ee;
+      --fg:      #1a1a1a;
+      --mid:     #555555;
+      --faint:   #aaaaaa;
+      --line:    #e2ddd8;
+      --accent:  #2d6a4f;
+      --sans:    "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      --mono:    ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      background-attachment: fixed;
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 15.5px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+    a:hover { opacity: 0.7; }
+
+    .col { padding: 0 200px; }
+
+    /* ── nav ──────────────────────────────────────────────── */
+    .site-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px 20px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+    }
+    .logo-mark {
+      display: block;
+      width: 38px;
+      height: 28px;
+    }
+    .nav-items { display: flex; gap: 22px; }
+    .nav-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      font-size: 13.5px;
+      color: var(--faint);
+      padding: 0;
+      transition: color .15s;
+      text-decoration: none;
+    }
+    .nav-btn:hover  { color: var(--accent); opacity: 1; }
+    .nav-btn.active { color: var(--accent); }
+
+    .fi {
+      opacity: 0;
+      animation: rise .28s ease forwards;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(7px); }
+      to   { opacity: 1; transform: translateY(0);   }
+    }
+
+    /* ── view intro ───────────────────────────────────────── */
+    .view-intro {
+      font-size: 15.5px;
+      color: var(--mid);
+      line-height: 1.82;
+      padding: 56px 0 38px;
+    }
+    .view-intro a { color: var(--mid); }
+
+    .e-logo {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+
+    /* ── expandable entries ───────────────────────────────── */
+    .entries { border-top: 1px solid var(--line); }
+    .entry   { border-bottom: 1px solid var(--line); }
+
+    .entry-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 22px 0;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--sans);
+    }
+    .entry-btn:hover .e-title { opacity: 0.5; }
+
+    .entry-meta { flex: 1; }
+    .e-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--fg);
+      margin-bottom: 3px;
+      transition: opacity .15s;
+    }
+    .e-org {
+      display: block;
+      font-size: 12.5px;
+      color: var(--faint);
+    }
+    .e-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .e-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .e-arrow {
+      font-size: 13px;
+      color: var(--faint);
+      transition: transform .25s ease, color .15s;
+      user-select: none;
+    }
+    .entry.open .e-arrow { transform: rotate(180deg); color: var(--accent); }
+
+    .entry-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s ease;
+      overflow: hidden;
+    }
+    .entry.open .entry-body { grid-template-rows: 1fr; }
+
+    .entry-body-inner  { min-height: 0; overflow: hidden; }
+    .entry-body-content {
+      padding-bottom: 26px;
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.82;
+    }
+    .entry-body-content p + p { margin-top: 12px; }
+    .entry-body-content a { color: var(--mid); }
+
+    /* ── sub-sections ─────────────────────────────────────── */
+    .sub-section { padding-top: 48px; }
+    .sec-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 22px;
+    }
+    .sub-entry {
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.72;
+    }
+    .sub-entry:last-child { border-bottom: 1px solid var(--line); }
+    .sub-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 5px;
+    }
+    .sub-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+    .sub-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--faint);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .sub-entry a { color: var(--mid); }
+
+    /* footer */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 0 52px;
+    }
+    .foot-links {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--mid);
+      flex-wrap: wrap;
+    }
+    .foot-links a { color: var(--mid); text-decoration: none; }
+    .foot-links a:hover { color: var(--fg); }
+    .foot-copy {
+      margin-top: 18px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--faint);
+    }
+
+    /* ── responsive ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .col { padding: 0 24px; }
+      .site-nav { padding: 22px 24px 18px; }
+      .nav-items { gap: 14px; }
+      .sub-head { flex-direction: column; gap: 2px; }
+      .e-right { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="site-nav">
+    <svg class="logo-mark" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ayushmaan Puri">
+      <rect x="9" y="2" width="20" height="24" rx="1.5" stroke="var(--accent)" stroke-width="1.4"/>
+      <!-- <path d="M15 2 A4 3.5 0 0 0 23 2" stroke="var(--accent)" stroke-width="1.4"/> -->
+      <rect x="3" y="6"    width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="3" y="12.5" width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="3" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="29" y="6"    width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="29" y="12.5" width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <rect x="29" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
+      <!-- <text x="19" y="16" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7.5" font-weight="600" fill="var(--accent)">AP</text> -->
+    </svg>
+    <div class="nav-items">
+      <a class="nav-btn" href="preview.html">About</a>
+      <a class="nav-btn active" href="research.html">Research</a>
+      <a class="nav-btn" href="teaching.html">Teaching</a>
+    </div>
+  </nav>
+
+<div class="col">
+
+  <p class="view-intro fi" style="animation-delay:.05s">
+    My work sits at the intersection of performance and sustainability in computing.
+    I'm drawn to questions about architectural tradeoffs — where to run computation,
+    how to measure efficiency honestly, and what "sustainable" actually means at the systems level.
+    I've been lucky to explore these questions across three very different research environments.
+  </p>
+
+  <div class="entries fi" style="animation-delay:.14s">
+
+    <div class="entry" id="e-patlab">
+      <button class="entry-btn" onclick="toggle('e-patlab')">
+        <img class="e-logo" src="img/URH_logo.png" alt="UC Scholars / URH" />
+        <div class="entry-meta">
+          <span class="e-title">Undergraduate Researcher, PatLab</span>
+          <span class="e-org">UC San Diego · UC Scholars Program</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Jun 2025 — present</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          I work with <a href="https://patpannuto.com/" target="_blank" rel="noopener">Prof. Patrick Pannuto</a> and
+          <a href="https://raymondduenas.com/" target="_blank" rel="noopener">Raymond Dueñas</a> on CPU–GPU split inference
+          for CNN models on NVIDIA Jetson edge devices. The core question: given a model too large
+          to run entirely on a GPU, at what layer should you cut it — and does the answer change
+          when you optimize for energy rather than throughput?
+        </p>
+        <p>
+          This project produced my first full research paper, presented at
+          <a href="https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf" target="_blank" rel="noopener">UCSD SRC 2025</a>
+          and being integrated into a submission to an international conference
+          (name redacted for double-blind review). I'm grateful to Pat and Raymond for
+          taking a chance on me and teaching me how research actually works.
+        </p>
+      </div></div></div>
+    </div>
+
+    <div class="entry" id="e-iitd">
+      <button class="entry-btn" onclick="toggle('e-iitd')">
+        <img class="e-logo" src="img/IITD_logo.png" alt="IIT Delhi" />
+        <div class="entry-meta">
+          <span class="e-title">Visiting Researcher, IITD SeNSE</span>
+          <span class="e-org">Indian Institute of Technology, Delhi</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Jun – Sep 2024</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          I spent a summer at <a href="https://sense.iitd.ac.in/" target="_blank" rel="noopener">IITD SeNSE</a> working with
+          <a href="https://web.iitd.ac.in/~mulaveesala/" target="_blank" rel="noopener">Prof. Ravibabu Mulaveesala</a>
+          on signal processing for nondestructive testing. The work involved adapting an open-source
+          pipeline to reconstruct subsurface images using Fourier and correlation transforms,
+          even under noisy measurement conditions.
+        </p>
+        <p>
+          This was my first mentored research experience — and where I learned what it actually
+          means to do science: reading papers critically, communicating findings clearly, working
+          through problems as a team. Tea time with Ravi sir and the PhD students was also excellent.
+        </p>
+      </div></div></div>
+    </div>
+
+    <div class="entry" id="e-nasa">
+      <button class="entry-btn" onclick="toggle('e-nasa')">
+        <img class="e-logo" src="img/CaSGC_logo.png" alt="NASA CaSGC" />
+        <div class="entry-meta">
+          <span class="e-title">Researcher, NASA California Space Grant</span>
+          <span class="e-org">Orange Coast College</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Jun – Aug 2023</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          I worked on the sensors and circuitry team for a lunar rover prototype, improving
+          Arduino-based control code to synchronize UV and Hall effect sensors. The team
+          repurposed an RC car as a base — which meant adding custom suspension to keep
+          the sensors stable enough to collect consistent data.
+        </p>
+        <p>
+          Through signal processing improvements and low-level code refinements,
+          we pushed pipeline efficiency up by ~65% and sensor precision by 2.5×.
+          I presented our <a href="./NASA Ca_SGC Final Poster.pdf" target="_blank" rel="noopener">findings and poster</a>
+          to the NASA California Space Grant Consortium at the end of the summer.
+        </p>
+      </div></div></div>
+    </div>
+
+  </div>
+
+  <div class="sub-section fi" style="animation-delay:.22s">
+    <p class="sec-label">Publications &amp; Talks</p>
+    <div class="sub-entry">
+      <div class="sub-head">
+        <span class="sub-title">SCCUR 2025 — Southern California Conference for Undergraduate Research</span>
+        <span class="sub-date">Nov 2025</span>
+      </div>
+      Presented <em>UnifiedSplitting</em> with Parth Mehta and Fahad Alkhazam at CSU Channel Islands.
+      <a href="https://airtable.com/embed/appJNFWOkOHEz40pf/shr7QSuLwvThEw3Qj/tblzSg4QbAxZa1rz1/viwUCRZa4JLZpt3bm/reck8rJNek41xyWqu" target="_blank" rel="noopener">Abstract</a>
+      &middot; <a href="https://docs.google.com/presentation/d/1FSYJOcpmSsdAtHpGBS3yf0Wk7LeUv1JoV2OA4ryuJx0/edit?usp=sharing" target="_blank" rel="noopener">Slides</a>
+    </div>
+    <div class="sub-entry">
+      <div class="sub-head">
+        <span class="sub-title">UCSD Summer Research Conference (SRC) 2025</span>
+        <span class="sub-date">Aug 2025</span>
+      </div>
+      CPU–GPU split inference optimizations on edge devices; results reproduced across multiple Jetson platforms.
+      <a href="https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf#page=292" target="_blank" rel="noopener">Abstract</a>
+      &middot; <a href="https://docs.google.com/presentation/d/1NpE_AzdwMhmThSExQXPT5_3J6FuQk1rulLzNKAAYyaE/edit?usp=sharing" target="_blank" rel="noopener">Slides</a>
+    </div>
+    <div class="sub-entry">
+      <div class="sub-head">
+        <span class="sub-title">Conference paper — in preparation</span>
+        <span class="sub-date">2026</span>
+      </div>
+      Raymond Dueñas, Patrick Pannuto, Ayushmaan Puri*, Parth Mehta*, Fahad Alkhazam*
+    </div>
+  </div>
+
+  <div class="sub-section fi" style="animation-delay:.30s; padding-bottom: 64px;">
+    <p class="sec-label">Awards &amp; Honors</p>
+    <div class="sub-entry">
+      <div class="sub-head">
+        <span class="sub-title">
+          <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/#:~:text=Ayushmaan%20Puri%2C%20University%20of%20California%2C%20San%20Diego" target="_blank" rel="noopener">Honorable Mention, CRA Outstanding Undergraduate Researcher Award</a>
+        </span>
+        <span class="sub-date">Jan 2026</span>
+      </div>
+      Named among the most outstanding undergraduate researchers across North America by the Computing Research Association.
+    </div>
+    <div class="sub-entry">
+      <div class="sub-head">
+        <span class="sub-title">
+          <a href="https://ugresearch.ucsd.edu/programs/all-urh-programs/uc-scholars/index.html" target="_blank" rel="noopener">UC Scholar, UCSD Undergraduate Research Hub</a>
+        </span>
+        <span class="sub-date">May 2025</span>
+      </div>
+      Selected to join a cohort of 11 undergraduate researchers at UCSD, funded by the URH.
+    </div>
+    <div class="sub-entry">
+      <div class="sub-head">
+        <span class="sub-title">George Ciarlo Memorial Scholarship, Orange Coast College</span>
+        <span class="sub-date">May 2024</span>
+      </div>
+      Awarded for academic excellence and service to the community.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="foot-links">
+      <span>aypuri [at] ucsd.edu</span>
+      <a href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/aypuri" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://docs.google.com/document/d/19y4q07t-jG6VEzetlcm0LwE59ik_COHHdgkFJjzfBMU/edit?usp=sharing" target="_blank" rel="noopener">CV</a>
+    </div>
+    <div class="foot-copy">© <span id="yr"></span> Ayushmaan Puri</div>
+  </footer>
+
+</div>
+
+<script>
+  function toggle(id) {
+    document.getElementById(id).classList.toggle('open');
+  }
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
