@@ -41,15 +41,45 @@
 
   <div class="entries fi" style="animation-delay:.14s">
 
+    <div class="entry" id="e-junkyard">
+      <button class="entry-btn" onclick="toggle('e-junkyard')">
+        <img class="e-logo" src="img/UCSD-Seal-Logo.png" alt="UC San Diego" />
+        <div class="entry-meta">
+          <span class="e-title">Undergraduate Researcher — Junkyard Computing</span>
+          <span class="e-org">Kastner Research Group · UC San Diego</span>
+        </div>
+        <div class="e-right">
+          <span class="e-date">Mar 2026 — present</span>
+          <span class="e-arrow">↓</span>
+        </div>
+      </button>
+      <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
+        <p>
+          The Junkyard project repurposes discarded smartphones as compute nodes for distributed systems.
+          My focus is autograding: in a recent offering of CSE 160, 330 students shared 40 reservable GPU pods
+          on UCSD's DSMLP cluster. Around deadlines, demand reliably outpaced supply — students waited for
+          feedback at exactly the moment they needed it most.
+        </p>
+        <p>
+          The insight is that student submissions don't need raw GPU power; they need a consistent,
+          available execution environment. A cluster of repurposed phones can provide that at a fraction
+          of the cost, using hardware that would otherwise be discarded. Phones are power-efficient,
+          self-contained, and cheap(er than GPUs) to source. I'm investigating two core questions:
+          how many phones are needed to serve a class of <em>n</em> students without meaningful queuing delays,
+          and what is the throughput ceiling of a phone cluster before it degrades under load?
+        </p>
+      </div></div></div>
+    </div>
+
     <div class="entry" id="e-patlab">
       <button class="entry-btn" onclick="toggle('e-patlab')">
         <img class="e-logo" src="img/URH_logo.png" alt="UC Scholars / URH" />
         <div class="entry-meta">
-          <span class="e-title">Undergraduate Researcher, PatLab</span>
-          <span class="e-org">UC San Diego · UC Scholars Program</span>
+          <span class="e-title">Undergraduate Researcher — UnifiedSplitting</span>
+          <span class="e-org">PatLab · UC San Diego · UC Scholars Program</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Jun 2025 — present</span>
+          <span class="e-date">Jun 2025 — Mar 2026</span>
           <span class="e-arrow">↓</span>
         </div>
       </button>
@@ -62,10 +92,9 @@
           when you optimize for energy rather than throughput?
         </p>
         <p>
-          This project produced my first full research paper, presented at
+          This project produced my first research talk, presented at
           <a href="https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf" target="_blank" rel="noopener">UCSD SRC 2025</a>
-          and being integrated into a submission to an international conference
-          (name redacted for double-blind review). I'm grateful to Pat and Raymond for
+          . I'm grateful to Pat and Raymond for
           taking a chance on me and teaching me how research actually works.
         </p>
       </div></div></div>
@@ -75,7 +104,7 @@
       <button class="entry-btn" onclick="toggle('e-iitd')">
         <img class="e-logo" src="img/IITD_logo.png" alt="IIT Delhi" />
         <div class="entry-meta">
-          <span class="e-title">Visiting Researcher, IITD SeNSE</span>
+          <span class="e-title">Visiting Researcher — IITD SeNSE</span>
           <span class="e-org">Indian Institute of Technology, Delhi</span>
         </div>
         <div class="e-right">
@@ -103,8 +132,8 @@
       <button class="entry-btn" onclick="toggle('e-nasa')">
         <img class="e-logo" src="img/CaSGC_logo.png" alt="NASA CaSGC" />
         <div class="entry-meta">
-          <span class="e-title">Researcher, NASA California Space Grant</span>
-          <span class="e-org">Orange Coast College</span>
+          <span class="e-title">Research Intern — Lunar Rover Modeling</span>
+          <span class="e-org">NASA California Space Grant · Orange Coast College</span>
         </div>
         <div class="e-right">
           <span class="e-date">Jun – Aug 2023</span>
