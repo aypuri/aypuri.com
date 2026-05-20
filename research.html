@@ -91,6 +91,15 @@
           The core question we explored: how can we make the CPU a part of the AI inference story on devices with unified memory?
         </p>
         <p>
+          Our proposed answer: Convolutions (which act like powerful image
+          filters) are very parallelizable and run 370–740x faster on the
+          GPU, while fully connected (less parallelizable) layers see only
+          37–38x gains. Identifying this gap, we assign convolutions to the
+          GPU and the remaining layers to the CPU. Unified memory lets
+          both processors share data without copies, and a queue-based
+          pipeline overlaps their work across batches, keeping each busy.
+        </p>
+        <p>
           This project produced my first research talk, presented at
           <a href="https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf" target="_blank" rel="noopener">UCSD SRC 2025</a>. 
           For my work in UnifiedSplitting, I received an honorable mention in the <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/#:~:text=Ayushmaan%20Puri%2C%20University%20of%20California%2C%20San%20Diego" target="_blank" rel="noopener">CRA outstanding undergraduate researcher awards</a>. I'm grateful to Pat and Raymond for
