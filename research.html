@@ -4,14 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research — Ayushmaan Puri</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="site-nav">
+    <button class="logo-btn" type="button" aria-label="Thermal camera view" aria-pressed="false">
     <svg class="logo-mark" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ayushmaan Puri">
       <rect x="9" y="2" width="20" height="24" rx="1.5" stroke="var(--accent)" stroke-width="1.4"/>
       <!-- <path d="M15 2 A4 3.5 0 0 0 23 2" stroke="var(--accent)" stroke-width="1.4"/> -->
@@ -23,6 +22,7 @@
       <rect x="29" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
       <!-- <text x="19" y="16" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7.5" font-weight="600" fill="var(--accent)">AP</text> -->
     </svg>
+    </button>
     <div class="nav-items">
       <a class="nav-btn" href="index.html">About</a>
       <a class="nav-btn active" href="research.html">Research</a>
@@ -33,9 +33,9 @@
 <div class="col">
 
   <p class="view-intro fi" style="animation-delay:.05s">
-    My work sits at the intersection of performance and sustainability in computing.
-    I'm drawn to questions about architectural tradeoffs. Where to run computation,
-    how to measure and optimize efficiency in resource-constrained environments, and what "sustainable" actually means at the systems level.
+    Most of my research is about sustainability in computing. Computers get built, used for a few years,
+    and thrown away. I want to know how to keep that hardware useful for longer, and how to account for
+    a computer system's environmental cost when we design it.
     I've been lucky to explore these questions across four very different research environments.
   </p>
 
@@ -43,14 +43,12 @@
 
     <div class="entry" id="e-junkyard">
       <button class="entry-btn" onclick="toggle('e-junkyard')">
-        <img class="e-logo" src="img/CSE_logo.png" alt="UC San Diego" />
         <div class="entry-meta">
-          <span class="e-title">Undergraduate Researcher — Junkyard Computing</span>
-          <span class="e-org">CSE · UC San Diego</span>
+          <span class="e-title">Junkyard Computing</span>
+          <span class="e-org">Autograding on a cluster of repurposed phones</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Mar 2026 — present</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Mar 2026 - present</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -73,14 +71,12 @@
 
     <div class="entry" id="e-patlab">
       <button class="entry-btn" onclick="toggle('e-patlab')">
-        <img class="e-logo" src="img/URH_logo.png" alt="UC Scholars / URH" />
         <div class="entry-meta">
-          <span class="e-title">Undergraduate Researcher — UnifiedSplitting</span>
-          <span class="e-org">PatLab · UC San Diego · UC Scholars Program</span>
+          <span class="e-title">UnifiedSplitting</span>
+          <span class="e-org">Splitting CNN inference between the CPU and GPU on Jetson boards</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Jun 2025 — Mar 2026</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Jun 2025 - Mar 2026</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -117,14 +113,12 @@
 
     <div class="entry" id="e-iitd">
       <button class="entry-btn" onclick="toggle('e-iitd')">
-        <img class="e-logo" src="img/IITD_logo.png" alt="IIT Delhi" />
         <div class="entry-meta">
-          <span class="e-title">Visiting Researcher — IITD SeNSE</span>
-          <span class="e-org">Indian Institute of Technology, Delhi</span>
+          <span class="e-title">IIT Delhi SeNSE</span>
+          <span class="e-org">Reconstructing subsurface images from noisy measurements</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Jun – Sep 2024</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Jun - Sep 2024</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -145,14 +139,12 @@
 
     <div class="entry" id="e-nasa">
       <button class="entry-btn" onclick="toggle('e-nasa')">
-        <img class="e-logo" src="img/CaSGC_logo.png" alt="NASA CaSGC" />
         <div class="entry-meta">
-          <span class="e-title">Research Intern — Lunar Rover Modeling</span>
-          <span class="e-org">NASA California Space Grant · Orange Coast College</span>
+          <span class="e-title">NASA CA Space Grant</span>
+          <span class="e-org">Sensor control for a lunar rover prototype built on an RC car</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Jun – Aug 2023</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Jun - Aug 2023</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -171,35 +163,6 @@
       </div></div></div>
     </div>
 
-  </div>
-
-  <div class="sub-section fi" style="animation-delay:.22s; padding-bottom: 64px;">
-    <p class="sec-label">Publications &amp; Talks</p>
-    <div class="sub-entry">
-      <div class="sub-head">
-        <span class="sub-title">SCCUR 2025 — Southern California Conference for Undergraduate Research</span>
-        <span class="sub-date">Nov 2025</span>
-      </div>
-      Presented <em>UnifiedSplitting</em> with Parth Mehta and Fahad Alkhazam at CSU Channel Islands.
-      <a href="https://airtable.com/embed/appJNFWOkOHEz40pf/shr7QSuLwvThEw3Qj/tblzSg4QbAxZa1rz1/viwUCRZa4JLZpt3bm/reck8rJNek41xyWqu" target="_blank" rel="noopener">Abstract</a>
-      &middot; <a href="https://docs.google.com/presentation/d/1FSYJOcpmSsdAtHpGBS3yf0Wk7LeUv1JoV2OA4ryuJx0/edit?usp=sharing" target="_blank" rel="noopener">Slides</a>
-    </div>
-    <div class="sub-entry" >
-      <div class="sub-head">
-        <span class="sub-title">UCSD Summer Research Conference (SRC) 2025</span>
-        <span class="sub-date">Aug 2025</span>
-      </div>
-      CPU–GPU split inference optimizations on edge devices; results reproduced across multiple Jetson platforms.
-      <a href="https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf#page=292" target="_blank" rel="noopener">Abstract</a>
-      &middot; <a href="https://docs.google.com/presentation/d/1NpE_AzdwMhmThSExQXPT5_3J6FuQk1rulLzNKAAYyaE/edit?usp=sharing" target="_blank" rel="noopener">Slides</a>
-    </div>
-    <!-- <div class="sub-entry">
-      <div class="sub-head">
-        <span class="sub-title">Conference paper — in preparation</span>
-        <span class="sub-date">2026</span>
-      </div>
-      Raymond Dueñas, Patrick Pannuto, Ayushmaan Puri*, Parth Mehta*, Fahad Alkhazam*
-    </div> -->
   </div>
 
   <!-- <div class="sub-section fi" style="animation-delay:.30s; padding-bottom: 64px;">
@@ -234,7 +197,7 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="foot-links">
-      <span>aypuri [at] ucsd.edu</span>
+      <a href="mailto:aypuri@ucsd.edu,ayushmaan.puri18@gmail.com">Email</a>
       <a href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/aypuri" target="_blank" rel="noopener">GitHub</a>
       <a href="cv.pdf" target="_blank" rel="noopener">CV</a>

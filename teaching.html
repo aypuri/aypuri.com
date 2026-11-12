@@ -4,29 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Teaching — Ayushmaan Puri</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
-  <style>
-    .sub-entry-inner {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .inst-logo {
-      width: 56px;
-      height: 56px;
-      object-fit: contain;
-      flex-shrink: 0;
-      margin-top: 2px;
-      opacity: 0.85;
-    }
-  </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="site-nav">
+    <button class="logo-btn" type="button" aria-label="Thermal camera view" aria-pressed="false">
     <svg class="logo-mark" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ayushmaan Puri">
       <rect x="9" y="2" width="20" height="24" rx="1.5" stroke="var(--accent)" stroke-width="1.4"/>
       <!-- <path d="M15 2 A4 3.5 0 0 0 23 2" stroke="var(--accent)" stroke-width="1.4"/> -->
@@ -38,6 +22,7 @@
       <rect x="29" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
       <!-- <text x="19" y="17.5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7.5" font-weight="600" fill="var(--accent)">AP</text> -->
     </svg>
+    </button>
     <div class="nav-items">
       <a class="nav-btn" href="index.html">About</a>
       <a class="nav-btn" href="research.html">Research</a>
@@ -51,22 +36,18 @@
     I've been lucky to have some great opportunities to teach and mentor students in various capacities,
     from one-on-one tutoring to leading workshops and clubs. I care a lot about making STEM education more accessible and inclusive,
     and I try to bring that perspective into all the teaching I do.
-    Below are some highlights. if you want to know more about any of it, 
-    feel free to <a href="mailto:ayushmaan.puri18@gmail.com" target="_blank" rel="noopener">reach out</a>!
   </p>
 
   <div class="entries fi" style="animation-delay:.14s">
 
     <div class="entry" id="e-mesa">
       <button class="entry-btn" onclick="toggle('e-mesa')">
-        <img class="e-logo" src="img/MESA_logo.jpg" alt="MESA" />
         <div class="entry-meta">
           <span class="e-title">STEM/MESA Peer Mentor</span>
           <span class="e-org">Orange Coast College · STEM Academy + MESA</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Aug 2023 – May 2024</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Aug 2023 - May 2024</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -86,14 +67,12 @@
 
     <div class="entry" id="e-stemclub">
       <button class="entry-btn" onclick="toggle('e-stemclub')">
-        <img class="e-logo" src="img/STEMCLUB_logo.png" alt="Orange Coast College" />
         <div class="entry-meta">
           <span class="e-title">President, STEM Club</span>
           <span class="e-org">Orange Coast College</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Aug 2023 – May 2024</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Aug 2023 - May 2024</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -110,14 +89,12 @@
 
     <div class="entry" id="e-teals">
       <button class="entry-btn" onclick="toggle('e-teals')">
-        <img class="e-logo" src="img/Microsoft_logo.png" alt="Microsoft" />
         <div class="entry-meta">
           <span class="e-title">Teaching Assistant, Microsoft TEALS</span>
           <span class="e-org">Santa Fe Junior High</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Jul 2023 – Feb 2024</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Jul 2023 - Feb 2024</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -136,14 +113,12 @@
 
     <div class="entry" id="e-tutor">
       <button class="entry-btn" onclick="toggle('e-tutor')">
-        <img class="e-logo" src="img/SSC_logo.jpg" alt="Student Success Center" />
         <div class="entry-meta">
           <span class="e-title">Honors Mathematics Tutor</span>
           <span class="e-org">Orange Coast College · Student Success Center</span>
         </div>
         <div class="e-right">
-          <span class="e-date">Jan – May 2023</span>
-          <span class="e-arrow">↓</span>
+          <span class="e-date">Jan - May 2023</span>
         </div>
       </button>
       <div class="entry-body"><div class="entry-body-inner"><div class="entry-body-content">
@@ -162,38 +137,10 @@
 
   </div>
 
-  <div class="sub-section fi" style="animation-delay:.22s; padding-bottom: 64px;">
-    <p class="sec-label">Education</p>
-    <div class="sub-entry">
-      <div class="sub-entry-inner">
-        <img class="inst-logo" src="img/UCSD-Seal-Logo.png" alt="UC San Diego" />
-        <div>
-          <div class="sub-head">
-            <span class="sub-title">B.S. Computer Engineering</span>
-            <span class="sub-date">exp. 2026</span>
-          </div>
-          University of California, San Diego
-        </div>
-      </div>
-    </div>
-    <div class="sub-entry">
-      <div class="sub-entry-inner">
-        <img class="inst-logo" src="img/OCC_logo.png" alt="Orange Coast College" />
-        <div>
-          <div class="sub-head">
-            <span class="sub-title">A.S. Computer Science, Mathematics, Physics</span>
-            <span class="sub-date">2022 – 2024</span>
-          </div>
-          Orange Coast College
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="foot-links">
-      <span>aypuri [at] ucsd.edu</span>
+      <a href="mailto:aypuri@ucsd.edu,ayushmaan.puri18@gmail.com">Email</a>
       <a href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/aypuri" target="_blank" rel="noopener">GitHub</a>
       <a href="cv.pdf" target="_blank" rel="noopener">CV</a>

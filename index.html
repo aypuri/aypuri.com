@@ -4,12 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ayushmaan Puri</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
   <style>
     .home-top {
-      padding: 64px 0 0;
+      padding: 40px 0 0;
       display: grid;
       grid-template-columns: 210px 1fr;
       gap: 52px;
@@ -52,19 +50,10 @@
       display: block;
     }
 
-    .home-tags {
-      margin-top: 24px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--faint);
-      letter-spacing: 0.02em;
-    }
-    .home-tags span + span::before { content: ' / '; }
-
     .home-section {
-      margin-top: 56px;
-      padding-top: 40px;
-      padding-bottom: 72px;
+      margin-top: 36px;
+      padding-top: 24px;
+      padding-bottom: 32px;
       border-top: 1px solid var(--line);
     }
 
@@ -72,7 +61,7 @@
       display: grid;
       grid-template-columns: 72px 1fr;
       gap: 0 20px;
-      font-size: 14px;
+      font-size: 15.5px;
       color: var(--mid);
       line-height: 1.6;
       padding: 5px 0;
@@ -81,7 +70,7 @@
     .news-row.hidden { display: none; }
     .n-when {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 12.5px;
       color: var(--faint);
       padding-top: 2px;
     }
@@ -91,7 +80,7 @@
       padding: 0;
       margin-top: 14px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 12.5px;
       color: var(--faint);
       cursor: pointer;
       display: block;
@@ -110,6 +99,7 @@
 
   <!-- NAV -->
   <nav class="site-nav">
+    <button class="logo-btn" type="button" aria-label="Thermal camera view" aria-pressed="false">
     <svg class="logo-mark" viewBox="0 0 38 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ayushmaan Puri">
       <rect x="9" y="2" width="20" height="24" rx="1.5" stroke="var(--accent)" stroke-width="1.4"/>
       <!-- <path d="M15 2 A4 3.5 0 0 0 23 2" stroke="var(--accent)" stroke-width="1.4"/> -->
@@ -121,6 +111,7 @@
       <rect x="29" y="19"   width="6" height="2.5" rx="0.4" fill="var(--accent)"/>
       <!-- <text x="19" y="16" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7.5" font-weight="600" fill="var(--accent)">AP</text> -->
     </svg>
+    </button>
     <div class="nav-items">
       <a class="nav-btn active" href="index.html">About</a>
       <a class="nav-btn" href="research.html">Research</a>
@@ -137,19 +128,13 @@
       <h1 class="greeting">Ayushmaan Puri</h1>
       <div class="home-bio">
         <p>
-          I am a computer engineer and researcher at UC San Diego.
-          My research bridges performance with environmental responsibility.
+          I am a research and development engineer at UC San Diego.
+          My research interests are in sustainable and carbon-aware computing.
+          On the Junkyard Computing project, I run a cluster of repurposed smartphones without batteries and test their power and thermal limits.
         </p>
         <p>
-          Currently, I am working on operating a cluster of repurposed smartphones without batteries and testing their power and thermal limits.
+          I received my B.S. in Computer Engineering from UC San Diego in 2026.
         </p>
-      </div>
-      <div class="home-tags">
-        <span>Parallel computation</span>
-        <span>Sustainable computing</span>
-        <span>Computer architecture</span>
-        <span>Embedded systems</span>
-        <span>STEM pedagogy</span>
       </div>
     </div>
   </div>
@@ -159,10 +144,18 @@
     <p class="sec-label">News</p>
     <div id="news-list">
       <div class="news-row">
+        <span class="n-when">Sep 2026</span>
+        <span>Got my B.S.! Excited to continue research and apply to graduate school this fall.</span>
+      </div>
+      <div class="news-row">
+        <span class="n-when">Aug 2026</span>
+        <span>Wrapped up mentoring the 2026 cohort of the Engineers for Exploration REU.</span>
+      </div>
+      <div class="news-row">
         <span class="n-when">Jan 2026</span>
         <span>I've received an honorable mention in the <a href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/#:~:text=Ayushmaan%20Puri%2C%20University%20of%20California%2C%20San%20Diego" target="_blank" rel="noopener">CRA Outstanding Undergraduate Researcher Award</a> for my work at UCSD CSE!</span>
       </div>
-      <div class="news-row">
+      <div class="news-row hidden">
         <span class="n-when">Oct 2025</span>
         <span><em>UnifiedSplitting</em> accepted to <a href="https://airtable.com/embed/appJNFWOkOHEz40pf/shr7QSuLwvThEw3Qj/tblzSg4QbAxZa1rz1/viwUCRZa4JLZpt3bm/reck8rJNek41xyWqu" target="_blank" rel="noopener">SCCUR 2025</a>. I'm presenting a talk at CSU Channel Islands on Nov 22.</span>
       </div>
@@ -170,7 +163,7 @@
         <span class="n-when">Oct 2025</span>
         <span>Applying to ECE/CSE PhD programs. Scared, but excited.</span>
       </div> -->
-      <div class="news-row">
+      <div class="news-row hidden">
         <span class="n-when">Aug 2025</span>
         <span>Presented <em>UnifiedSplitting</em> at <a href="https://ugresearch.ucsd.edu/conferences/src/2025-SRC-Program.pdf" target="_blank" rel="noopener">UCSD SRC 2025</a>.</span>
       </div>
@@ -213,7 +206,7 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="foot-links">
-      <span>aypuri [at] ucsd.edu</span>
+      <a href="mailto:aypuri@ucsd.edu,ayushmaan.puri18@gmail.com">Email</a>
       <a href="https://linkedin.com/in/aypuri" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/aypuri" target="_blank" rel="noopener">GitHub</a>
       <a href="cv.pdf" target="_blank" rel="noopener">CV</a>
